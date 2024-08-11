@@ -45,7 +45,7 @@ const BarChart = () => {
             },
             title: {
                 display: true,
-                text: 'Daily Revenue'
+                text: '此週審查數'
             }
         },
         maintainAspectRatio: false,
