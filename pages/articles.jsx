@@ -101,30 +101,36 @@ const articles = () => {
                       <p className='text-gray-800 text-sm'>{article.author}</p>
                     </div>
                   </div>
-                  <p className='text-gray-600 sm:text-left text-right'>
-                    <span
-                      className={
-                        article.category === '科學中道'
-                          ? 'bg-green-200 p-2 rounded-lg'
-                          : article.category === '哲理中道'
-                            ? 'bg-blue-200 p-2 rounded-lg'
-                            : 'bg-gray-200 p-2 rounded-lg'
-                      }
-                    >
-                      {article.category}
-                    </span>
+                  <p className='text-gray-600 sm:text-left text-right flex flex-wrap gap-2'>
+                    {article.category.split('+').map((category, index) => (
+                      <span
+                        key={index}
+                        className={
+                          category === '科學'
+                            ? 'bg-green-200 p-2 rounded-lg'
+                            : category === '哲理'
+                              ? 'bg-blue-200 p-2 rounded-lg'
+                              : 'bg-gray-200 p-2 rounded-lg'
+                        }
+                      >
+                        {category}
+                      </span>
+                    ))}
                   </p>
                   <p className='hidden md:flex'>
-                    {new Date(article.updatedAt).toLocaleString('zh-TW', {
-                      year: 'numeric',
-                      month: '2-digit',
-                      day: '2-digit',
-                      hour: '2-digit',
-                      minute: '2-digit',
-                      second: '2-digit',
-                      hour12: false
-                    }).replace(',', '')}
+                    {article.updatedAt ?
+                      new Date(article.updatedAt).toLocaleString('zh-TW', {
+                        year: 'numeric',
+                        month: '2-digit',
+                        day: '2-digit',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit',
+                        hour12: false
+                      }).replace(',', '')
+                      : '無'}
                   </p>
+
                   <div className='sm:flex hidden justify-between items-center'>
                     <p>{article.comment}</p>
                   </div>

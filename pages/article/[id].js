@@ -5,7 +5,7 @@ import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa';
 
 export default function ArticlePage({ article }) {
   const router = useRouter();
-  const contentParagraphs = article.content ? article.content.split('　　') : ['無內容'];
+  const contentParagraphs = article.content ? article.content.split(' ') : ['無內容'];
 
   const [recommended, setRecommended] = useState(article.recommended);  // true: recommended, false: not recommended
   const [comment, setComment] = useState(article.comment || '');
@@ -62,7 +62,7 @@ export default function ArticlePage({ article }) {
       <p className="text-gray-500 italic mb-4">作者: {article.author || '未知'}</p>
 
       <div className="border-t pt-4 mt-4">
-        <h2 className="text-xl font-semibold mb-2">你推薦這篇文章嗎？</h2>
+        <h2 className="text-xl font-semibold mb-2">你推薦這篇文章放進智庫嗎？</h2>
         <button
           onClick={() => handleRecommendation(true)}
           className={`mr-4 px-4 py-2 border border-green-500 rounded-lg ${recommended === true ? 'bg-green-500 text-white' : 'text-green-500'

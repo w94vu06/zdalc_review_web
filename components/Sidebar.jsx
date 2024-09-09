@@ -6,6 +6,7 @@ import { FaListUl } from "react-icons/fa";
 import { FiSettings } from 'react-icons/fi';
 import { useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
+import { TbMovie } from "react-icons/tb";
 
 const Sidebar = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -27,6 +28,13 @@ const Sidebar = ({ children }) => {
               <FaListUl size={20} />
             </div>
           </Link>
+
+          <Link href='/articles'>
+            <div className='bg-gray-100 hover:bg-gray-200 cursor-pointer my-4 p-3 rounded-lg inline-block'>
+              <TbMovie size={20} />
+            </div>
+          </Link>
+
         </div>
       </div>
 
